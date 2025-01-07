@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Ticket } from "../tickets";
 
 interface Props {
@@ -16,7 +16,7 @@ const TicketDetails = ({ ticket, onClose, onAddComment }: Props) => {
   const [newComment, setNewComment] = useState("");
 
   const handleAddComment = () => {
-    console.log(newComment)
+    console.log(newComment);
     if (newComment.trim()) {
       onAddComment(ticket.id, {
         text: newComment,
@@ -39,18 +39,33 @@ const TicketDetails = ({ ticket, onClose, onAddComment }: Props) => {
           </button>
         </div>
         <div className="mb-4">
-          <p><strong>ID:</strong> {ticket.id}</p>
-          <p><strong>Título:</strong> {ticket.title}</p>
-          <p><strong>Descrição:</strong> {ticket.description}</p>
-          <p><strong>Criador:</strong> {ticket.creator}</p>
-          <p><strong>Data de Criação:</strong> {ticket.createdAt}</p>
+          <p>
+            <strong>ID:</strong> {ticket.id}
+          </p>
+          <p>
+            <strong>Título:</strong> {ticket.title}
+          </p>
+          <p>
+            <strong>Descrição:</strong> {ticket.description}
+          </p>
+          <p>
+            <strong>Criador:</strong> {ticket.creator}
+          </p>
+          <p>
+            <strong>Data de Criação:</strong> {ticket.createdAt}
+          </p>
         </div>
         <div className="">
-          <h3 className="text-lg font-semibold text-gray-700 mb-2">Comentários</h3>
+          <h3 className="text-lg font-semibold text-gray-700 mb-2">
+            Comentários
+          </h3>
           <ul className="mb-4 space-y-2 max-h-[100px] lg:max-h-[200px] overflow-auto">
             {ticket.comments.map((comment: Comment, index: number) => (
               <li key={index} className="p-2 bg-gray-100 rounded-md">
-                {comment.text} <em className="text-sm  text-gray-500 text-[.6rem] block text-right">({comment.date})</em>
+                {comment.text}{" "}
+                <em className="text-sm  text-gray-500 text-[.6rem] block text-right">
+                  ({comment.date})
+                </em>
               </li>
             ))}
           </ul>

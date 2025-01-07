@@ -1,4 +1,3 @@
-// App.js
 import { useState } from "react";
 import TicketTable from "./components/TicketTable";
 import TicketDetails from "./components/TicketDetails";
